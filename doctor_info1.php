@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Doctor Info</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="style2.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.color.js"></script>
+<script type="text/javascript" charset="utf-8">
+// <![CDATA[
+$(document).ready(function(){
+	$('div.port').hover(
+	  function(){
+		$(this).stop().animate({backgroundColor: "#f5f5f5"}, 300);
+	  }, 
+	  function(){
+		$(this).stop().animate({backgroundColor: "#fff"}, 300);
+	  });
+});
+// ]]>
+</script>
+</head>
+<body>
+<div class="main">
+  <div class="header_resize">
+    <div class="header">
+      <div class="logo"><a href="index.php"><img src="images/logo.gif" width="280" height="62" border="0" alt="logo" /></a></div>
+      
+      <div class="clr"></div>
+      <div class="menu"> <a href="#"><img src="images/rss_1.gif" alt="picture" width="18" height="18" border="0" /></a> <a href="#"><img src="images/rss_2.gif" alt="picture" width="18" height="18" border="0" /></a> <a href="#"><img src="images/twitter.png" alt="picture" width="18" height="18" border="0" /></a>
+        <ul>
+          <ul>
+           <li><a href="index.php" >Home</a></li>
+          <li><a href="doctor_info.php" class="active">Doctor</a></li>
+          <li><a href="hospital_info.php">Hospital</a></li>
+          <li><a href="clinic_info.php">Clinic</a></li>
+         
+          </ul>
+        </ul>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="back_ground">
+    <div class="clr"></div>
+    <div class="body">
+      <div class="body_resize">
+        <?php
+		include("config.php");
+if($_SERVER["REQUEST_METHOD"] == "POST")
+{
+	$Sid=$_POST['Sid'];
+	$query=mysql_query("Select * from specilization where Sid=$Sid");
+	$spe=mysql_fetch_array($query);
+
+
+?>
+        <h3>Doctors List For <?php echo $spe['S_name']; ?></h3>
+        <table align="center" width="900px" height="auto" bgcolor="#FFF" bordercolor="#000" border="0" >
+          <?php
+	$sql=mysql_query("select * from doctor where Sid='$Sid' ") or die ("NO doctors found!!!");
+		$count=mysql_num_rows($sql);
+		if($count==0)
+			echo "NO DOCTORS FOUND IN THE DATABASE";
+		for($i=0;$i<$count;$i++)
+		{
+			$temp=$i+1;
+		
+		$namesmp=mysql_fetch_array($sql);
+		$id=$namesmp['Did'];
+		$name=$namesmp['Fname'];
+		$lname=$namesmp['Lname'];
+		$Phone_no=$namesmp['Phone_no'];
+		$lid=$namesmp['Lid'];
+		$email=$namesmp['Email'];
+		$sql1=mysql_query("Select * from location where Lid='$lid' ") or die("erro1");
+		$add_array=mysql_fetch_array($sql1);
+			$plot=$add_array['plot_no'];
+			$street=$add_array['Street'];
+			$city=$add_array['City'];
+			$State=$add_array['State'];
+			$Country=$add_array['Country'];
+			$pin=$add_array['Pin'];
+		$sql2=mysql_query("Select * from career where Did='$id' ")or die("erro2");
+		$career=mysql_fetch_array($sql2);
+		$Ratings=$career['Ratings'];
+		$Exp=$career['Exp'];
+		$Specilization_from=$career['Specilization_from'];
+		$Qualification=$career['Qualification'];
+		echo "<tr bgcolor='#00FFFF'> <td colspan='4'  > Doctor $temp Details </td> </tr>"; 
+		echo "<tr > <td colspan='2' bgcolor='#CCCCFF'> <label> Name </label></td> <td bgcolor='#CCFFFF' colspan='2'> $name $lname </td></tr>";
+		
+		echo "<tr><td  bgcolor='#CCCCFF'> <label> Qualification </label></td> <td bgcolor='#CCFFFF'>$Qualification</td>";
+		echo " <td  bgcolor='#CCCCFF'> <label> Expirence </label></td> <td bgcolor='#CCFFFF'>$Exp  </td></tr>";
+		echo " <tr><td  bgcolor='#CCCCFF'> <label> Specilization_from </label></td> <td bgcolor='#CCFFFF'> $Specilization_from</td>";
+		echo "<td  bgcolor='#CCCCFF'> <label> Ratings </label></td> <td bgcolor='#CCFFFF'> $Ratings </td></tr>";
+		echo " <tr> <td  bgcolor='#CCCCFF'> <label> PH no </label></td> <td bgcolor='#CCFFFF'> $Phone_no </td>";
+		echo "<td  bgcolor='#CCCCFF'> <label> Address</label></td> <td bgcolor='#CCFFFF'> #$plot, $street street, $city,<br />
+															$State,$Country,$pin </td></tr>";
+															
+		$sql3=mysql_query("select * from visits where Did='$id' ") or die("error3");
+		$hos_count=mysql_num_rows($sql3);
+		for($j=0;$j<$hos_count;$j++)
+		{
+			$visits=mysql_fetch_array($sql3);
+			$hid=$visits['Hid'];
+			$time_from=$visits['From_time'];
+			$time_to=$visits['To_time'];
+			$days=$visits['Day'];
+			
+			
+			$sql4=mysql_query("Select * from hospital where Hid='$hid' ")or die ("error4");
+			$hospital=mysql_fetch_array($sql4);
+			$hname=$hospital['Hname'];
+			$hratings=$hospital['Ratings'];
+			$Hlid=$hospital['Lid'];
+			$Hwebsite=$hospital['website'];
+			$Hpn=$hospital['Phone_number'];
+			
+			$sql5=mysql_query("Select * from location where Lid='$Hlid' ") or die("erro1");
+			$add_array1=mysql_fetch_array($sql5);
+			$hplot=$add_array1['plot_no'];
+			$hstreet=$add_array1['Street'];
+			$hcity=$add_array1['City'];
+			$hState=$add_array1['State'];
+			$hCountry=$add_array1['Country'];
+			$hpin=$add_array1['Pin'];
+			
+			
+			
+		echo "<tr bgcolor='#00FFFF'> <td colspan='4' align='center'  > Doctor's Hospital Details </td> </tr>";
+		echo "<tr><td  bgcolor='#CCCCFF'> <label> Hospital Name </label></td> <td bgcolor='#CCFFFF'>$hname</td>";	
+		echo " <td  bgcolor='#CCCCFF'> <label> Ratings </label></td> <td bgcolor='#CCFFFF'> $hratings</td></tr>";
+		echo "<tr><td  bgcolor='#CCCCFF'> <label> Visiting Hours </label></td> <td bgcolor='#CCFFFF'>$time_from to $time_to</td>";
+		echo " <td  bgcolor='#CCCCFF'> <label> Visiting Days </label></td> <td bgcolor='#CCFFFF'> $days</td></tr>";
+		echo "<tr><td  bgcolor='#CCCCFF'> <label> Website </label></td> <td bgcolor='#CCFFFF'>$Hwebsite</td>";
+		echo " <td  bgcolor='#CCCCFF'> <label> Phone Number </label></td> <td bgcolor='#CCFFFF'>$Hpn</td></tr>";
+		echo "<tr> <td  bgcolor='#CCCCFF'> <label> Address</label></td> <td bgcolor='#CCFFFF' colspan='3' > #$hplot, $hstreet street, $hcity,<br />
+															$hState,$hCountry,$hpin </td></tr>";
+		
+			
+			
+			
+			}
+			
+		$sql6=mysql_query("select * from clinic where Did='$id' ") or die("error3");
+		$clinic_count=mysql_num_rows($sql6);
+		for($k=0;$k<$clinic_count;$k++)
+		{
+			$clinic=mysql_fetch_array($sql6);
+			
+			$cname=$clinic['C_name'];
+			$time_from=$clinic['From_time'];
+			$time_to=$clinic['To_time'];
+			$days=$clinic['Day'];
+			$c_ph=$clinic['Phone_no'];
+		
+			$cratings=$clinic['Ratings'];
+			$Clid=$clinic['Lid'];
+		
+			
+			$sql5=mysql_query("Select * from location where Lid='$Clid' ") or die("erro1");
+			$add_array1=mysql_fetch_array($sql5);
+			$hplot=$add_array1['plot_no'];
+			$hstreet=$add_array1['Street'];
+			$hcity=$add_array1['City'];
+			$hState=$add_array1['State'];
+			$hCountry=$add_array1['Country'];
+			$hpin=$add_array1['Pin'];
+			
+			
+			
+		echo "<tr bgcolor='#00FFFF'> <td colspan='4' align='center'  > Doctor's Clinic Details </td> </tr>";
+		echo "<tr><td  bgcolor='#CCCCFF'> <label> Clinic Name </label></td> <td bgcolor='#CCFFFF'>$cname</td>";	
+		echo " <td  bgcolor='#CCCCFF'> <label> Ratings </label></td> <td bgcolor='#CCFFFF'> $cratings</td></tr>";
+		echo "<tr><td  bgcolor='#CCCCFF'> <label> Visiting Hours </label></td> <td bgcolor='#CCFFFF'>$time_from to $time_to</td>";
+		echo " <td  bgcolor='#CCCCFF'> <label> Visiting Days </label></td> <td bgcolor='#CCFFFF'> $days</td></tr>";
+		echo "<tr><td  bgcolor='#CCCCFF'> <label> Phone Number  </label></td> <td bgcolor='#CCFFFF'>$c_ph</td>";
+		echo " <td  bgcolor='#CCCCFF'> <label>Address </label></td> <td bgcolor='#CCFFFF'>#$hplot, $hstreet street, $hcity,<br />
+															$hState,$hCountry,$hpin </td></tr>";
+	
+			
+			
+			
+			}
+			
+			
+			
+		echo "<tr> <td colspan='4' align='center' > </td></tr> ";
+		echo "<tr> <td colspan='4' align='center' > **************************************</td></tr> ";
+		echo "<tr> <td colspan='4' align='center' > </td></tr> ";
+		}
+		
+	
+	  
+}
+  ?>
+        </table>
+        <div class="clr"></div>
+      </div>
+    </div>
+  </div>
+  <div class="clr"></div>
+  <div class="footer">
+    <div class="footer_resize">
+      <p class="leftt">Copyroght © Doc Info. All Rights Reserved<br />
+        <a href="index.php">Home</a> | <a href="index.php">Contact</a> <!--| <a href="index.php">RSS</a>--></p>
+      <div class="clr"></div>
+    </div>
+    <div class="clr"></div>
+    <div class="clr"></div>
+  </div>
+</div>
+</body>
+</html>

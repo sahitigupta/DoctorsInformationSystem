@@ -1,4 +1,24 @@
-	<!-- Add user -->
+	
+	$(document).on('click','#btn-add-spec',function(e) {
+		var data = $("#user_form-spec").serialize();
+		$.ajax({
+			data: data,
+			type: "post",
+			url: "backend/save.php",
+			success: function(dataResult){
+					var dataResult = JSON.parse(dataResult);
+					if(dataResult.statusCode==200){
+						$('#addEmployeeModal').modal('hide');
+						alert('Data added successfully !'); 
+                        location.reload();						
+					}
+					else if(dataResult.statusCode==201){
+					   alert(dataResult);
+					}
+			}
+		});
+	});
+
 	$(document).on('click','#btn-add',function(e) {
 		var data = $("#user_form").serialize();
 		$.ajax({
@@ -20,17 +40,20 @@
 	});
 	$(document).on('click','.update',function(e) {
 		var id=$(this).attr("data-id");
+		var spec_id=$(this).attr("data-spec_id");
 		var name=$(this).attr("data-name");
 		var email=$(this).attr("data-email");
 		var phone=$(this).attr("data-phone");
 		var city=$(this).attr("data-city");
-		$('#id_u').val(id);
+		$('#id_u').val(id);			
+		$('#spec_id_u').val(spec_id);
+		$('#name_u').val(name);
 		$('#name_u').val(name);
 		$('#email_u').val(email);
 		$('#phone_u').val(phone);
 		$('#city_u').val(city);
-	});
-	<!-- Update -->
+	}); 
+	
 	$(document).on('click','#update',function(e) {
 		var data = $("#update_form").serialize();
 		$.ajax({
@@ -38,7 +61,9 @@
 			type: "post",
 			url: "backend/save.php",
 			success: function(dataResult){
+					alert(dataResult); 
 					var dataResult = JSON.parse(dataResult);
+					
 					if(dataResult.statusCode==200){
 						$('#editEmployeeModal').modal('hide');
 						alert('Data updated successfully !'); 

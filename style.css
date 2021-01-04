@@ -1,0 +1,90 @@
+@charset "utf-8";
+body { margin:0; padding:0; width:100%; background: url(images/main_bg.gif);}
+html { padding:0; margin:0;}
+
+.main { margin:0 auto; padding:0;}
+.resize { width:960px; padding:0; margin:0 auto;}
+/********** header **********/
+.back_ground { margin:0; padding:0; background:#1a778a url(images/back_groun.jpg) top center repeat-x ;}
+.header_resize { margin:0; padding:0; background:url(images/header_bg.gif) top repeat-x;}
+.header { width:960px; padding:0; margin:0 auto;}
+/* 2 */
+.header_blog2 { background:url(images/header_blog_bg.gif) top center repeat-x; padding:20px 0 0 0; margin:0; height:95px;}
+.header_blog2 h2 { font: bold 36px Arial, Helvetica, sans-serif; color:#fff; padding:10px 0 0 0; margin:0;}
+/* logo */
+.logo {padding:0; margin:0; width:282px; float:left;}
+/*menu*/
+.menu { padding:5px 0 0 0; margin:0 ; width:960px;  float:left; }
+.menu img { float:right; margin:10px 5px; padding:0;}
+.menu ul { text-align: left;  padding:0; margin:0; list-style:none; border:0;}
+.menu ul li { float:left; margin:0; padding:0 10px; border:0;}
+.menu ul li a { float:left; margin:0; padding:12px 0; color:#919191; font:normal 12px Arial, Helvetica, sans-serif; text-decoration:none;}
+.menu ul li a:hover { color:#fff;}
+.menu ul li a.active { color:#fff;}
+/* search */
+.search { padding:15px 0 0 0; margin:0 auto; width:200px; float:right; }
+.search form { padding:0; margin:0 auto;}
+.search span { display:block; float:left; background: url(images/search_bg.gif) left top no-repeat; width:146px; padding:1px 5px; height:31px;}
+.search form .keywords { width:149px; line-height:14px; height:14px; float:left; background:none; border:0; padding:6px 2px; margin:0; font:normal 11px Arial, Helvetica, sans-serif; color:#acacac;}
+.search form .button { float:left; margin:0; padding:0;}
+/* body */
+.body_resize {padding:0; width:960px; margin:0 auto; background:#fff; border:1px solid #176a7b;}
+/* */
+.body { padding:50px 0 0 0; margin:0 auto;}
+.body h2 { font:bold 20px Arial, Helvetica, sans-serif; color:#272727; padding:20px 5px; margin:0 0 10px 0; border-bottom:1px solid #d0d0d0;}
+.body h4 { font:bold 20px Arial, Helvetica, sans-serif; color:#272727; padding:20px 5px; margin:0 0 10px 0;}
+.body h3 { font:bold 30px Arial, Helvetica, sans-serif; color:#272727; padding:20px 5px; margin:10px 15px; border-bottom:1px solid #d0d0d0;}
+.body p { font:normal 11px Arial, Helvetica, sans-serif; color:#575757; line-height:1.8em; padding:3px 5px; margin:0;}
+.body p span { color:#6d6d6d; font: normal 11px Arial, Helvetica, sans-serif;}
+.body a { color:#1a778a; text-decoration:none; font:bold 11px Arial, Helvetica, sans-serif;}
+.body img { margin:10px auto; padding:0;}
+.body img.floated { float:right; margin:5px 20px; padding:0;}
+.body img.floated2 { float:left; margin:5px 10px; padding:0;}
+.right { width:320px; margin:0; padding:15px; float:right;}
+.right2 { width:290px; margin:0; padding:15px; float:right;}
+.left { width:580px; margin:0; padding:15px; float:left;}
+.left ul { list-style:none; padding:0; margin:0 0 0 110px;}
+.left li { font: normal 11px Arial, Helvetica, sans-serif; color:#1a778a; background:url(images/ul_li.gif) left no-repeat; padding:2px 15px; margin:0;}
+.right_blog {width:315px; margin:0 10px; padding:0; float:left;}
+.port { width:424px; float:left; margin:14px 0 14px 20px !important; margin:14px 10px 14px 10px; padding:10px; border:1px solid #d0d0d0; background:#fff;}
+/********** contact form **********/
+#contactform { margin:0; padding:5px 10px; }
+#contactform * { color:#F00; }
+#contactform ol { margin:0; padding:0; list-style:none; }
+#contactform li { margin:0; padding:0; background:none; border:none; display:block; clear:both; }
+#contactform li.buttons { margin:5px 0 5px 0; clear:both; }
+#contactform label { margin:0; width:100px; display:block; padding:10px 0; color:#222; font: normal 12px Arial, Helvetica, sans-serif; text-transform:capitalize; float:left; }
+#contactform label span { color:#F00; }
+#contactform input.text { width:500px; border:1px solid #e1e1e1; margin:2px 0; padding:5px 2px; height:16px; background:#fff; float:left; }
+#contactform textarea { width:500px; border:1px solid #e1e1e1; margin:2px 0; padding:2px; background:#fff; float:left; }
+#contactform li.buttons input { padding:3px 0 3px 425px; margin:10px 0 0 0; border:0; color:#FFF; float:left; }
+
+/*************footer**********/
+.footer {padding:20px 0;  margin:0; background: url(images/footer_bg.gif) top center repeat-x;}
+.footer_resize { width:940px; margin:0 auto; padding:0 10px 10px 10px; background:#161616;}
+.footer p { font:normal 11px  Arial, Helvetica, sans-serif; color:#fff;}
+.footer a { font:bold 11px Arial, Helvetica, sans-serif; color:#1a778a; text-decoration:none; padding:5px; margin:0;}
+.footer p.right { text-align:right; width:350px; margin:0; padding:15px 0 0 0; float:right;} 
+.footer p.leftt { text-align:left; width:550px; margin:0; padding:15px 0 0 0; float:left;}
+
+p.clr, .clr { clear:both; padding:0; margin:0; background:none;}
+.bg { border-top:1px solid #d0d0d0;  clear:both; padding:0; margin:0 10px; background:none;}
+.header_blog { padding:50px 0 0 0; margin:0;}
+/* Slider */
+#slider { width:938px; padding:11px; margin:0 auto; background:#e4e4e4; border:1px solid #146d7e;}
+div#slideshow { float:left; width:100%; height:324px; }
+.slider-item { width:100% !important; }
+.slider-item img { margin:0; padding:0;}
+.slider_content_inner img { border: none; }
+.controls-center { padding:5px 0 0;}
+#slider_controls { margin:0 auto; z-index: 1000; width:938px;}
+#slider_controls img { margin:0; padding:6px 0 0 0; float:none;}
+#slider_controls h2 { width:300px; float:left; font: bold 14px Arial, Helvetica, sans-serif; color:#575757; padding:15px 0 0 0; margin:0;}
+#slider_controls h2 span { font: normal 12px Arial, Helvetica, sans-serif; color:#6f6f6f;}
+#slider_controls ul { margin:0; padding:0 20px 0 0; width:534px; float:right;}
+#slider_controls ul li { margin:0; padding:0; list-style: none; }
+#slider_controls ul li { float:right; display: block; }
+#slider_controls ul li a { width:78px; height:58px; background:url('images/') no-repeat center center; display:block; float:left; padding:0; margin:2px !important; margin:1px; outline:none; }
+#slider_controls ul li a:focus { outline: none; }
+#slider_controls ul li a:hover,
+#slider_controls ul li a.activeSlide { background:url('images/') no-repeat center center; }
