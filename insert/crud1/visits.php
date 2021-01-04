@@ -35,7 +35,7 @@ include 'backend/config.php';
 	<div class="menu">
 
 		<div class="dropdown">
-			<button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Menu
+			<button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown" style="margin-left: 50px;">Menu
 			<span class="caret"></span></button>
 			<ul class="dropdown-menu">
 				<li><a href="location.php">Location</a></li>
@@ -83,7 +83,7 @@ include 'backend/config.php';
 							</span>-->
 						</th>
 						<th>Doc ID</th>
-                        <th>Hosp NO</th>
+                        <th>Hosp ID</th>
                         <th>Day</th>
 						<th>From time</th>
                         <th>To time</th>

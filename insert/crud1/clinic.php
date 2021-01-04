@@ -34,7 +34,7 @@ include 'backend/config.php';
 	<div class="menu">
 
 		<div class="dropdown">
-			<button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Menu
+			<button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown" style="margin-left: 50px;">Menu
 			<span class="caret"></span></button>
 			<ul class="dropdown-menu">
 				<li><a href="location.php">Location</a></li>

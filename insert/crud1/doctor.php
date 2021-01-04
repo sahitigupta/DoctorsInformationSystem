@@ -31,7 +31,7 @@ include 'backend/config.php';
 	<div class="menu">
 
 		<div class="dropdown">
-			<button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Menu
+			<button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown" style="margin-left: 50px;">Menu
 			<span class="caret"></span></button>
 			<ul class="dropdown-menu">
 				<li><a href="location.php">Location</a></li>
@@ -179,11 +179,13 @@ include 'backend/config.php';
 						</div>
 						<div class="form-group">
 							<label>Phone</label>
-							<input type="phone" id="phone_no" name="phone_no" class="form-control" required>
+							<input type="phone" id="phone_no" name="phone_no" class="form-control" onfocusOut="phoneValid()" required>
+							<label id="ph_label"></label>
 						</div>
 						<div class="form-group">
 							<label>Email</label>
-							<input type="email" id="email" name="email" class="form-control" required>
+							<input type="email" id="email" name="email" class="form-control" onfocusOut="emailValid()" required>
+							<label id="email_label"></label>
 						</div>
 						<div class="form-group">
 							<label>Loc ID</label>
@@ -237,11 +239,11 @@ include 'backend/config.php';
 						</div>
 						<div class="form-group">
 							<label>Phone</label>
-							<input type="phone" id="phone_no_u" name="phone_no" class="form-control" required>
+							<input type="phone" id="phone_no_u" name="phone_no" class="form-control" onfocusout="phoneValid()" required>
 						</div>
 						<div class="form-group">
 							<label>Email</label>
-							<input type="email" id="email_u" name="email" class="form-control" required>
+							<input type="email" id="email_u" name="email" class="form-control" onfocusout="emailValid()" required>
 						</div>
 						<div class="form-group">
 							<label>Loc ID</label>
@@ -280,6 +282,22 @@ include 'backend/config.php';
 			</div>
 		</div>
 	</div>
+
+<script>
+function phoneValid() {
+	var x = document.getElementById("phone_no").value;
+	if(x.length != 10) {
+		document.getElementById("ph_label").innerHTML = "Invalid phone number";
+  }
+}
+function emailValid() {
+	var userInput = document.getElementById("email").value;
+	var res = userInput.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
+    if(res == null) {
+        document.getElementById("email_label").innerHTML = "Invalid email";
+	}
+}
+</script>
 
 </body>
 </html>                                		                            

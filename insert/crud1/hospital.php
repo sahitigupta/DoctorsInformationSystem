@@ -34,7 +34,7 @@ include 'backend/config.php';
 	<div class="menu">
 
 		<div class="dropdown">
-			<button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Menu
+			<button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown" style="margin-left: 50px;">Menu
 			<span class="caret"></span></button>
 			<ul class="dropdown-menu">
 				<li><a href="location.php">Location</a></li>
@@ -157,11 +157,13 @@ include 'backend/config.php';
 						</div>
 						<div class="form-group">
 							<label>Phone</label>
-							<input type="phone_number" id="phone_number" name="phone_number" class="form-control" required>
+							<input type="phone_number" id="phone_number" name="phone_number" class="form-control" onfocusout="phoneValid()" required>
+							<label id="ph_label"></label>
 						</div>
 						<div class="form-group">
 							<label>Website</label>
-							<input type="website" id="website" name="website" class="form-control" required>
+							<input type="website" id="website" name="website" class="form-control" onfocusout="websiteValid()" required>
+							<label id="web_label"></label>
 						</div>
 						<div class="form-group">
 							<label>Ratings</label>
@@ -245,6 +247,23 @@ include 'backend/config.php';
 			</div>
 		</div>
 	</div>
+	
+	
+<script>
+function phoneValid() {
+	var x = document.getElementById("phone_number").value;
+	if(x.length != 10) {
+		document.getElementById("ph_label").innerHTML = "Invalid phone number";
+  }
+}
+function websiteValid() {
+	var userInput = document.getElementById("website").value;
+	var res = userInput.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+    if(res == null) {
+        document.getElementById("web_label").innerHTML = "Invalid website";
+	}
+}
+</script>
 
 </body>
 </html>                                		                            

@@ -13,33 +13,6 @@
 	.logo,.menu{
 		background: black;
 	}
-	.nav-item dropdown{
-		color: white;
-	}
-	.page{
-		height: 200px;
-	}
-	/*.topnav a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}*/
-	.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.topnav a.active {
-  background-color: #ddd;
-  color: white;
-}
-
-.topnav-right {
-  float: right;
-}
 </style>
 <body>
 
@@ -49,81 +22,46 @@
 	</div>
 	
 	<div class="menu">
-		<!--<div class="nav-item dropdown">
-			<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"> Menu </a>-->
-		<!--<div class="topnav">-->
-			<button type="button" class="btn btn-success">Menu</button>
-			<!--<button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"></button>
-			<div class="dropdown-menu">
-				<a class="dropdown-item" href="#">Location</a>
-				<a class="dropdown-item" href="#">Specialization</a>
-				<a class="dropdown-item" href="#">Doctor</a>
-				<a class="dropdown-item" href="#">Hospital</a>
-				<a class="dropdown-item" href="#">Clinic</a>
-				<a class="dropdown-item" href="#">Visits</a>
-			</div>	-->
-			<!--<div class="container h-100"> 
-				<div class="d-flex h-100">
-					<div class="align-self-end ml-auto"> -->
-						<a class="btn btn-success float-right" href="../../index.php">
-						Logout
-						</a>
-					<!--</div>		
-				</div>
-			</div>
-			
-			<div class="topnav-right">
-				<a href="../../index.php">Logout</a>
-			</div>
-		</div>-->
+		<button type="button" class="btn btn-success" style="margin-left: 50px;">Menu</button>
+		<a class="btn btn-success float-right" href="../../index.php" style="margin-right: 50px;" onclick="logout()">
+		Logout
+		</a>
+		<script>
+			function logout(){
+				alert('Successfully logged out!');
+			}
+		</script>
+		
 	</div>
 	<div class = "clr"></div>
 
 	<div class = "pages">
 		<h1 style="color:black;text-align:center;">Admin page</h1> 
 		<br><br><br>
-		<!--<div class="container h-100"> 
-			<div class="d-flex h-100"> -->
-				<!--<div class="align-self-start mr-auto"> -->
-				<table class="table table-bordered">
-				<tr>
-					<a class="btn btn-success" href="location.php"> 
-					  Location
-					</a></tr> 
-					<tr></tr>
-				<!--</div> 
-				<!--<div class="align-self-center mx-auto"> -->
-					<tr><a class="btn btn-success" href="spec.php"> 
-					  Specialization
-					</a></tr>
-					<tr>					</tr>
-				<!--</div> -->
-				<!--<div class="align-self-end ml-auto"> -->
-					<tr><a class="btn btn-success" href="doctor.php"> 
-					  Doctor
-					</a></tr> 
-				<!--</div> -->
-				<!--<div class="align-self-start mr-auto"> -->
+		<a class="btn btn-success float-center " href="spec.php" style="margin-left: 630px"> 
+		Specialization
+		</a><br><br>
 				
-					<tr><a class="btn btn-success" href="clinic.php"> 
-					 Clinic
-					</a>  </tr>
-					<tr></tr>
-				<!--</div> -->
-				<!--<div class="align-self-center mx-auto"> -->
-					<tr><a class="btn btn-success" href="hospital.php">
-					  Hospital
-					</a></tr>
-					<tr></tr>					
-				<!--</div> 
-				<div class="align-self-end ml-auto"> -->
-					<tr><a class="btn btn-success" href="visits.php">
-					  Visits
-					</a></tr> 
-				</table>
-				</div> 
-		
-		
+		<a class="btn btn-success" href="location.php" style="margin-left: 430px"> 
+		Location
+		</a>
+				
+		<a class="btn btn-success" href="doctor.php" style="margin-left: 330px"> 
+		Doctor
+		</a><br><br><br><br>
+				
+		<a class="btn btn-success" href="clinic.php" style="margin-left: 435px"> 
+		Clinic
+		</a>
+				
+		<a class="btn btn-success" href="visits.php" style="margin-left: 356px">
+		Visits
+		</a><br><br>
+
+		<a class="btn btn-success" href="hospital.php" style="margin-left: 650px">
+		Hospital
+		</a>
+	</div> 
 	
 </body>
 </html>

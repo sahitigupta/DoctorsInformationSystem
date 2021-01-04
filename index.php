@@ -194,9 +194,9 @@ span.psw {
 		<a href="#"><img src="images/twitter.png" alt="picture" width="18" height="18" border="0" /></a>
         <ul>
           <li><a href="index.php" class="active">Home</a></li>
-          <li><a href="doctor_info.php">Doctor</a></li>
-          <li><a href="hospital_info.php">Hospital</a></li>
-          <li><a href="clinic_info.php">Clinic</a></li>
+          <li><a href="docdetails.php">Doctor</a></li>
+          <!--<li><a href="hospital_info.php">Hospital</a></li>
+          <li><a href="clinic_info.php">Clinic</a></li>-->
 		  <li><a href="#myModal" onclick="document.getElementById('id01').style.display='block'">Admin</a></li>
         </ul>
       </div>
@@ -211,7 +211,7 @@ span.psw {
       <div id="slider"> 
         <!-- start slideshow -->
         <div id="slideshow">
-          <div class="slider-item"><a href="doctor_info.php"><img src="images/simple_img_1.jpg" alt="icon" width="938" height="330" border="0" /></a></div>
+          <div class="slider-item"><a href="docdetails.php"><img src="images/simple_img_1.jpg" alt="icon" width="938" height="330" border="0" /></a></div>
           <!--<div class="slider-item"><a href="hospital_info.php"><img src="images/simple_img_2.jpg" alt="icon" width="938" height="330" border="0" /></a></div>
           <div class="slider-item"><a href="clinic_info.php"><img src="images/simple_img_3.jpg" alt="icon" width="938" height="330" border="0" /></a></div>-->
         </div>
@@ -223,11 +223,11 @@ span.psw {
               <span>Solution for your Medical needs</span></h2>
             <ul id="slider_nav">
               <!-- Slide 4 -->
-              <li><a href="hospital_info.php"><img src="images/tabs_2_1.gif" alt="picture" width="80" height="50" border="0" /></a></li> 
+              <li><a href="docdetails.php"><img src="images/tabs_2_1.gif" alt="picture" width="80" height="50" border="0" /></a></li> 
               <!-- Slide 3 -->
-               <li><a  href="doctor_info.php"><img src="images/tabs_1_1.gif" alt="picture" width="80" height="50" border="0" /></a></li>
+               <li><a  href="docdetails.php"><img src="images/tabs_1_1.gif" alt="picture" width="80" height="50" border="0" /></a></li>
               <!-- Slide 2 --> 
-              <li><a  href="clinic_info.php"><img src="images/tabs_3_1.gif" alt="picture" width="80" height="50" border="0" /></a></li>
+              <li><a  href="docdetails.php"><img src="images/tabs_3_1.gif" alt="picture" width="80" height="50" border="0" /></a></li>
             </ul>
           </div>
           <div class="clr"></div>
