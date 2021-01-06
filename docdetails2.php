@@ -183,7 +183,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 			
 			
 			
-		echo "<tr bgcolor='#00FFFF'> <td colspan='4' align='center'  >  Clinic $tempc Details </td> </tr>";
+		echo "<tr bgcolor='#ddd'> <td colspan='4' align='center'  >  Clinic $tempc Details </td> </tr>";
 		echo "<tr><td  bgcolor='#CCCCFF'colspan='2' align='center'> <label> Clinic Name </label></td> <td bgcolor='#CCFFFF' colspan='2' align='center'>$clinic_name</td></tr>";	
 		echo "<tr> <td  bgcolor='#CCCCFF' colspan='2' align='center'> <label> Ratings </label></td> <td bgcolor='#CCFFFF' colspan='2' align='center'> $ratings</td></tr>";
 		echo "<tr><td  bgcolor='#CCCCFF' colspan='2' align='center'> <label> Visiting Hours </label></td> <td bgcolor='#CCFFFF' colspan='2' align='center'>$from_time to $to_time</td></tr>";

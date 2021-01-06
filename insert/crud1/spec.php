@@ -197,6 +197,18 @@ include 'backend/config.php';
 		</div>
 	</div>
 
+<!--<script>
+	function addValid(){
+		var user1=document.getElementById("spec_name").value;
+		if(user1==""){
+			document.getElementById("btn-add").disabled=true;
+		}
+		else{
+			document.getElementById("btn-add").enabled=true;
+		}
+	}
+</script>	-->
+	
 </body>
 </html>                                		                            
 

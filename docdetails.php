@@ -52,25 +52,25 @@ $(document).ready(function(){
         <h3>Doctor's search</h3>
       <br />
      <form action="" method="post" >
-	<table >
+	<table style="margin-left:20px;">
     <tr>
-    	<th> Select Doctor By <br /></th>
-        <td> <input type="radio" name="op" value="Name"  />
-        Name<br></td>
-        <td>
+    	<th> Search Doctor by <br /></th></tr>
+        <tr><td> <br><input type="radio" name="op" value="Name"  />
+        Name<br></td></tr>
+        <tr><td>
         <input type="radio" name="op" value="Location" />
         Location<br>
-        </td>
-         <td>
+        </td></tr>
+        <tr><td>
         <input type="radio" name="op" value="Specilization" />
        Specilization<br>
-        </td>
-        
-     <td> <input type="submit" value="Select"  />   </td>
+        </td></tr>
+      <tr>  
+     <td><br> <input type="submit" value="Select" style="margin-left:5px;" />   </td></tr>
 	</tr>
 	</table>
     </form>
-    
+    <br>
  <?php
 include("config1.php");
 if($_SERVER["REQUEST_METHOD"] == "POST")
@@ -85,8 +85,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 		echo "<table><tr><td> Select Specilization </td><td> <select name='spec_id'>";
 		$sql=mysqli_query($conn,"select * from specilization") or die ("nil");
 		$count=mysqli_num_rows($sql);
+		echo "<option value='Select' >Select Specialization</option>";
 		for($i=0;$i<$count;$i++)
-		{
+		{                       
 								$namesmp=mysqli_fetch_array($sql);
 								$spec_id=$namesmp['spec_id'];
 								$spec_name=$namesmp['spec_name'];
@@ -140,7 +141,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 <br />
 <br />
 <br />
-
+<br><br><br><br><br><br><br><br><br>
 
         <div class="clr"></div>
       </div>

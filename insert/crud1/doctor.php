@@ -118,7 +118,7 @@ include 'backend/config.php';
 						<a href="#editEmployeeModal" class="edit" data-toggle="modal">
 							<i class="material-icons update" data-toggle="tooltip" 
 							data-id="<?php echo $row["doc_id"]; ?>"
-							data-first_name="><?php echo $row["first_name"]; ?>"
+							data-first_name="<?php echo $row["first_name"]; ?>"
 							data-last_name="<?php echo $row["last_name"]; ?>"
 							data-spec_id="<?php echo $row["spec_id"]; ?>"
 							data-specilization_from="<?php echo $row["specilization_from"]; ?>"
@@ -287,14 +287,24 @@ include 'backend/config.php';
 function phoneValid() {
 	var x = document.getElementById("phone_no").value;
 	if(x.length != 10) {
+		document.getElementById('ph_label').style.color = 'red';
 		document.getElementById("ph_label").innerHTML = "Invalid phone number";
+  }
+  else {
+		document.getElementById('ph_label').style.color = 'green';
+		document.getElementById("ph_label").innerHTML = "Valid phone number";
   }
 }
 function emailValid() {
 	var userInput = document.getElementById("email").value;
 	var res = userInput.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
     if(res == null) {
+	    document.getElementById('email_label').style.color = 'red';
         document.getElementById("email_label").innerHTML = "Invalid email";
+	}
+	else{
+		document.getElementById('email_label').style.color = 'green';
+        document.getElementById("email_label").innerHTML = "Valid email";
 	}
 }
 </script>

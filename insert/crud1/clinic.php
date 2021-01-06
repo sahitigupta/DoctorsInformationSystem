@@ -45,11 +45,6 @@ include 'backend/config.php';
 				<li><a href="visits.php">Visits</a></li>
 				<li class="divider"></li>
 				<li><a href="../../index.php" onclick="logout()">Logout</a></li>
-				<script>
-					function logout(){
-						alert('Successfully logged out!');
-					}
-				</script>
 			</ul>
 		</div>	
 	</div>
@@ -121,7 +116,7 @@ include 'backend/config.php';
 						<a href="#editEmployeeModal" class="edit" data-toggle="modal">
 							<i class="material-icons update" data-toggle="tooltip" 
 							data-id="<?php echo $row["clinic_id"]; ?>"
-							data-clinic_name="><?php echo $row["clinic_name"]; ?>"
+							data-clinic_name="<?php echo $row["clinic_name"]; ?>"
 							data-doc_id="<?php echo $row["doc_id"]; ?>"
 							data-from_time="<?php echo $row["from_time"]; ?>"
 							data-to_time="<?php echo $row["to_time"]; ?>"
@@ -177,7 +172,8 @@ include 'backend/config.php';
 						</div>
 						<div class="form-group">
 							<label>Phone</label>
-							<input type="phone_no" id="phone_no" name="phone_no" class="form-control" required>
+							<input type="phone_no" id="phone_no" name="phone_no" onfocusOut="phoneValid()" class="form-control" required>
+							<label id="ph_label"></label>
 						</div>
 						<div class="form-group">
 							<label>Ratings</label>
@@ -275,6 +271,24 @@ include 'backend/config.php';
 		</div>
 	</div>
 
+<script>
+	function logout(){
+		alert('Successfully logged out!');
+	}
+
+	function phoneValid() {
+		var x = document.getElementById("phone_no").value;
+		if(x.length != 10) {
+			document.getElementById('ph_label').style.color = 'red';
+			document.getElementById("ph_label").innerHTML = "Invalid phone number";
+		}
+		else {
+			document.getElementById('ph_label').style.color = 'green';
+			document.getElementById("ph_label").innerHTML = "Valid phone number";
+		}
+	}	
+</script>	
+	
 </body>
 </html>                                		                            
 

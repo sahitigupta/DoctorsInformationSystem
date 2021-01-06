@@ -1,7 +1,7 @@
-DROP TRIGGER IF EXISTS `doctors_count`
+DROP TRIGGER IF EXISTS `doctors_count_add`
 
 delimiter $$
-create trigger doctors_count
+create trigger doctors_count_add
 after insert on visits
 for each row
 begin
@@ -9,6 +9,20 @@ begin
     set total_doctors=total_doctors+1
     -- set total_doctors=doctorCount(total_doctors) 
     where hosp_id=new.hosp_id;
+end$$
+delimiter ;
+
+DROP TRIGGER IF EXISTS `doctors_count_sub`
+
+delimiter $$
+create trigger doctors_count_sub
+after delete on visits
+for each row
+begin
+	update hospital
+    set total_doctors=total_doctors-1
+    -- set total_doctors=doctorCount(total_doctors) 
+    where hosp_id=old.hosp_id;
 end$$
 delimiter ;
 
@@ -29,8 +43,6 @@ BEGIN
     SELECT FLOOR(DATEDIFF(NOW(), DATE(exp_start_date))/365) as exp_year;
 END $$
 DELIMITER ;
-
-CALL experienceYear('1981-06-25');
 
 SET @p0=TIMESTAMP('2000-01-01'); 
 CALL `experienceYear`(@p0);

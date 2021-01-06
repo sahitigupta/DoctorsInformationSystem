@@ -43,7 +43,6 @@
 			type: "post",
 			url: "backend/save.php",
 			success: function(dataResult){
-					/* alert(dataResult);  */
 					var dataResult = JSON.parse(dataResult);
 					
 					if(dataResult.statusCode==200){

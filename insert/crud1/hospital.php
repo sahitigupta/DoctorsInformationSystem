@@ -45,11 +45,6 @@ include 'backend/config.php';
 				<li><a href="visits.php">Visits</a></li>
 				<li class="divider"></li>
 				<li><a href="../../index.php" onclick="logout()">Logout</a></li>
-				<script>
-					function logout(){
-						alert('Successfully logged out!');
-					}
-				</script>
 			</ul>
 		</div>	
 	</div>
@@ -118,7 +113,7 @@ include 'backend/config.php';
 						<a href="#editEmployeeModal" class="edit" data-toggle="modal">
 							<i class="material-icons update" data-toggle="tooltip" 
 							data-id="<?php echo $row["hosp_id"]; ?>"
-							data-hosp_name="><?php echo $row["hosp_name"]; ?>"
+							data-hosp_name="<?php echo $row["hosp_name"]; ?>"
 							data-phone_number="<?php echo $row["phone_number"]; ?>"
 							data-website="<?php echo $row["website"]; ?>"
 							data-ratings="<?php echo $row["ratings"]; ?>"
@@ -250,19 +245,32 @@ include 'backend/config.php';
 	
 	
 <script>
-function phoneValid() {
-	var x = document.getElementById("phone_number").value;
-	if(x.length != 10) {
-		document.getElementById("ph_label").innerHTML = "Invalid phone number";
-  }
-}
-function websiteValid() {
-	var userInput = document.getElementById("website").value;
-	var res = userInput.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
-    if(res == null) {
-        document.getElementById("web_label").innerHTML = "Invalid website";
+	function logout(){
+		alert('Successfully logged out!');
 	}
-}
+	function phoneValid() {
+		var x = document.getElementById("phone_number").value;
+		if(x.length != 10) {
+			document.getElementById('ph_label').style.color = 'red';
+			document.getElementById("ph_label").innerHTML = "Invalid phone number";
+		}
+		else {
+			document.getElementById('ph_label').style.color = 'green';
+			document.getElementById("ph_label").innerHTML = "Valid phone number";
+		}
+	}
+	function websiteValid() {
+		var userInput = document.getElementById("website").value;
+		var res = userInput.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+		if(res == null) {
+			document.getElementById('web_label').style.color = 'red';
+			document.getElementById("web_label").innerHTML = "Invalid website";
+		}
+		else{
+			document.getElementById('web_label').style.color = 'green';
+			document.getElementById("web_label").innerHTML = "Valid website";
+		}
+	}
 </script>
 
 </body>

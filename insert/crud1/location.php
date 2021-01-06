@@ -46,11 +46,6 @@ include 'backend/config.php';
 				<li><a href="visits.php">Visits</a></li>
 				<li class="divider"></li>
 				<li><a href="../../index.php" onclick="logout()">Logout</a></li>
-				<script>
-					function logout(){
-						alert('Successfully logged out!');
-					}
-				</script>
 			</ul>
 		</div>	
 	</div>
@@ -116,7 +111,7 @@ include 'backend/config.php';
 						<a href="#editEmployeeModal" class="edit" data-toggle="modal">
 							<i class="material-icons update" data-toggle="tooltip" 
 							data-id="<?php echo $row["loc_id"]; ?>"
-							data-plot="><?php echo $row["plot_no"]; ?>"
+							data-plot="<?php echo $row["plot_no"]; ?>"
 							data-street="<?php echo $row["street"]; ?>"
 							data-city="<?php echo $row["city"]; ?>"
 							data-state="<?php echo $row["state"]; ?>"
@@ -170,7 +165,8 @@ include 'backend/config.php';
 						</div>
 						<div class="form-group">
 							<label>PIN</label>
-							<input type="pin" id="pin" name="pin" class="form-control" required>
+							<input type="text" id="pin" name="pin" onkeyup="pinValid()" class="form-control" required>
+							<span id="pin_label"></span>
 						</div>
 
 					</div>
@@ -216,7 +212,7 @@ include 'backend/config.php';
 						</div>
 						<div class="form-group">
 							<label>pin</label>
-							<input type="pin" id="pin_u" name="pin" class="form-control" required>
+							<input type="pin" id="pin_u" name="pin"  class="form-control" required>
 						</div>
 					</div>
 					<div class="modal-footer">
@@ -252,6 +248,40 @@ include 'backend/config.php';
 		</div>
 	</div>
 
+<script>
+	function logout(){
+		alert('Successfully logged out!');
+	}
+	function pinValid(){
+		var userInput = document.getElementById("pin").value;
+		var res = userInput.match(/^[1-9][0-9]{5}$/);
+		if(res == userInput) {
+			document.getElementById('pin_label').style.color = 'green';
+			document.getElementById("pin_label").innerHTML = "Valid pincode";
+		}
+		else{
+			document.getElementById('pin_label').style.color = 'red';
+			document.getElementById("pin_label").innerHTML = "Pincode must contain 6 digits";
+		}
+	}
+	/*function addValid(){
+		
+		var Input1 = document.getElementById("plot_no").value;
+		var Input2 = document.getElementById("street").value;
+		var Input3 = document.getElementById("city").value;
+		var Input4 = document.getElementById("state").value;
+		var Input5 = document.getElementById("country").value;
+		var Input6 = document.getElementById("pin").value;
+		var Input7 = document.getElementById("pin").value;
+		if(Input1==""){
+			alert("Please fill the form");
+			  document.getElementById("btn-add").disabled = true;
+
+		}
+
+	}*/
+</script>	
+	
 </body>
 </html>                                		                            
 

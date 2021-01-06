@@ -71,7 +71,7 @@ img.avatar {
 }
 
 .container {
-  padding: 16px;
+  padding: 10px;
 }
 
 span.psw {
@@ -225,9 +225,9 @@ span.psw {
               <!-- Slide 4 -->
               <li><a href="docdetails.php"><img src="images/tabs_2_1.gif" alt="picture" width="80" height="50" border="0" /></a></li> 
               <!-- Slide 3 -->
-               <li><a  href="docdetails.php"><img src="images/tabs_1_1.gif" alt="picture" width="80" height="50" border="0" /></a></li>
+              <!--<li><a  href="docdetails.php"><img src="images/tabs_1_1.gif" alt="picture" width="80" height="50" border="0" /></a></li>
               <!-- Slide 2 --> 
-              <li><a  href="docdetails.php"><img src="images/tabs_3_1.gif" alt="picture" width="80" height="50" border="0" /></a></li>
+              <!--<li><a  href="docdetails.php"><img src="images/tabs_3_1.gif" alt="picture" width="80" height="50" border="0" /></a></li>-->
             </ul>
           </div>
           <div class="clr"></div>
@@ -241,13 +241,14 @@ span.psw {
       <div class="body_resize">
         <div class="left">
           <h2>Welcome to DOC INFO!</h2>
-          <p><strong>Solutions for your medical needs </strong><br />
-            DOC INFO is a place where you can find doctors by name, specilization and location. This website just not shows you the doctors but it will do the same for Hospital and Clinic.</p>
-          <p>DOC INFO is a place where you can find doctors by name, specilization and location. This website just not shows you the doctors but it will do the same for Hospital and Clinic. DOC INFO is a place where you can find doctors by name, specilization and location. This website just not shows you the doctors but it will do the same for Hospital and Clinic.</p>
+          <p><strong>Solution for your medical needs </strong><br />
+            DOC INFO is a place where you can find doctors by name, specilization and location. This website just not shows you the doctors but will also display the information about Hospital and Clinic.</p>
+          <!--<p>DOC INFO is a place where you can find doctors by name, specilization and location. This website just not shows you the doctors but it will do the same for Hospital and Clinic. DOC INFO is a place where you can find doctors by name, specilization and location. This website just not shows you the doctors but it will do the same for Hospital and Clinic.</p>-->
+		  <p>The Doctors Information System provides the information of doctors with their main expertise and qualification. The detailed information about each doctor are available which includes their working hours, personal clinic location, etc. This website is a gateway for the users to reach the concerned doctors.</p>
         </div>
         <div class="right">
           <h2>About Us</h2>
-          <p>DOC INFO is a place where you can find doctors by name, specilization and location. This website just not shows you the doctors but it will do the same for Hospital and Clinic. </p>
+          <p>The Doctors Information System provides the information of doctors with their main expertise and qualification.<br>DOC INFO is a place where you can find doctors by name, specilization and location. This website just not shows you the doctors but will also display the detailed information about Hospital and Clinic. </p>
         </div>
         <div class="bg"></div>
         <div class="right2">
@@ -304,7 +305,9 @@ span.psw {
 
       <label for="psw"><b>Password</b></label>
       <!--<input type="password" placeholder="Enter Password" name="psw" required>-->
-      <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+      <!--<input type="password" id="pswd" name="pswd" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>-->
+	  <input type="password" id="pswd" name="pswd" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" onfocusout="pswdValid()" required>
+	  <label id="pswd_label"></label>
         
       <!--<div id="message">
   <h2>Password must contain the following:</h2>
@@ -314,15 +317,15 @@ span.psw {
   <p id="length" class="invalid">Minimum <b>8 characters</b></p>
 </div>  -->
         
-      <button type="submit">Login</button>
+      <button type="submit" >Login</button>
       <!--<label>
         <input type="checkbox" checked="checked" name="remember"> Remember me
       </label>-->
     </div>
 
     <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn" style="margin-left: 10px;">Cancel</button>
+      <!--<span class="psw">Forgot <a href="#">password?</a></span>-->
     </div>
   </form>
 </div>
@@ -336,6 +339,13 @@ window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
+}
+function pswdValid(){
+	if(document.getElementById('pswd').value != "Asdfghjkl4") {
+		document.getElementById('pswd_label').style.color = 'red';
+		document.getElementById('pswd_label').innerHTML = 'Password entered is wrong';
+	//alert(document.getElementById('pswd').value);	
+  }
 }
 </script>
 

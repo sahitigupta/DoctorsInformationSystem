@@ -112,7 +112,7 @@ include 'backend/config.php';
 						<a href="#editEmployeeModal" class="edit" data-toggle="modal">
 							<i class="material-icons update" data-toggle="tooltip" 
 							data-id="<?php echo $row["visit_id"]; ?>"
-							data-doc_id="><?php echo $row["doc_id"]; ?>"
+							data-doc_id="<?php echo $row["doc_id"]; ?>"
 							data-hosp_id="<?php echo $row["hosp_id"]; ?>"
 							data-day="<?php echo $row["day"]; ?>"
 							data-from_time="<?php echo $row["from_time"]; ?>"

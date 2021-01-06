@@ -12,6 +12,7 @@ if(count($_POST)>0){
 		$state=$_POST['state'];
 		$country=$_POST['country'];
 		$pin=$_POST['pin'];
+		//if($plot==null &&)
 		
 		$sql = "INSERT INTO `location`(`plot_no`, `street`, `city`, `state`, `country`, `pin`)VALUES('$plot','$street', '$city','$state', '$country', '$pin')";
 		#$sql = "INSERT INTO `student`(`fname`, `lname`, `email`) VALUES ('$plot', '$lname', '$email')";
