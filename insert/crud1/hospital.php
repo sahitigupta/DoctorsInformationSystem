@@ -70,7 +70,7 @@ include 'backend/config.php';
 						<h2>Manage <b>Hospitals</b></h2>
 					</div>
 					<div class="col-sm-6">
-						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Hospital</span></a>
+						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal" onclick="addValid()"><i class="material-icons">&#xE147;</i> <span>Add New Hospital</span></a>
 						<!--<a href="JavaScript:void(0);" class="btn btn-danger" id="delete_multiple"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>						-->
 					</div>
                 </div>
@@ -178,7 +178,7 @@ include 'backend/config.php';
 					<div class="modal-footer">
 					    <input type="hidden" value="H1" name="type">
 						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-						<button type="button" class="btn btn-success" id="btn-add">Add</button>
+						<button type="button" class="btn btn-success" id="btn-add" onclick="addValid1()">Add</button>
 					</div>
 				</form>
 			</div>
@@ -275,6 +275,18 @@ include 'backend/config.php';
 		else{
 			document.getElementById('web_label').style.color = 'green';
 			document.getElementById("web_label").innerHTML = "Valid website";
+		}
+	}
+	function addValid(){
+		document.getElementById("btn-add").disabled = false;
+	}
+	function addValid1(){
+		var ip1 = document.getElementById("hosp_name").value;
+		var ip2 = document.getElementById("phone_number").value;
+		var ip3 = document.getElementById("website").value;
+		if(ip1==""||ip2==""||ip3==""){
+			alert("Please fill the form with valid details");
+			document.getElementById("btn-add").disabled = true;
 		}
 	}
 </script>

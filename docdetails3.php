@@ -130,7 +130,7 @@ $(document).ready(function(){
 							<td bgcolor='#CCFFFF' colspan='2' align='center'>$yr  </td>
 						</tr>";
 					echo " <tr>
-							<td  bgcolor='#CCCCFF' colspan='2' align='center'> <label> Specilization_from </label></td> 
+							<td  bgcolor='#CCCCFF' colspan='2' align='center'> <label> Specilization from </label></td> 
 							<td bgcolor='#CCFFFF' colspan='2' align='center'> $specilization_from</td>
 						</tr>";
 					#echo "<td  bgcolor='#CCCCFF'> <label> Ratings </label></td> <td bgcolor='#CCFFFF'> $Ratings </td></tr>";
