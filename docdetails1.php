@@ -60,8 +60,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
           <?php
 	$sql=mysqli_query($conn,"select * from doctor where spec_id='$spec_id' ") or die ("NO doctors found!!!");
 		$count=mysqli_num_rows($sql);
-		if($count==0)
+		if($count==0) {
 			echo "NO DOCTORS FOUND IN THE RECORD";
+		    echo "<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />";
+		}
 		for($i=0;$i<$count;$i++)
 		{
 			$temp=$i+1;
@@ -73,9 +75,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 		$specilization_from=$namesmp['specilization_from'];
 		$qualification=$namesmp['qualification'];
 		$exp_start_date=$namesmp['exp_start_date'];
+		
+		$exp=mysqli_query($conn,"call experienceYear('$exp_start_date')");
+		$e1=mysqli_fetch_array($exp);
+		$yr=$e1['exp_year'];
+		
 		$phone_no=$namesmp['phone_no'];
 		$email=$namesmp['email'];
 		$loc_id=$namesmp['loc_id'];
+		
+		mysqli_close($conn);					
+		include("config1.php");
 		
 		$sql1=mysqli_query($conn, "Select * from location where loc_id='$loc_id' ") or die("error1");
 		$add_array=mysqli_fetch_array($sql1);
@@ -95,11 +105,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 		echo "<tr > <td bgcolor='#CCCCFF' colspan='2' align='center'> <label> Name </label></td> <td bgcolor='#CCFFFF' colspan='2' align='center'> $first_name $last_name </td></tr>";
 		
 		echo "<tr><td  bgcolor='#CCCCFF' colspan='2' align='center'> <label> Qualification </label></td> <td bgcolor='#CCFFFF' colspan='2' align='center'>$qualification</td></tr>";
-		echo "<tr> <td  bgcolor='#CCCCFF' colspan='2' align='center'> <label> Experience </label></td> <td bgcolor='#CCFFFF' colspan='2' align='center'>$exp_start_date  </td></tr>";
+		echo "<tr> <td  bgcolor='#CCCCFF' colspan='2' align='center'> <label> Experience years</label></td> <td bgcolor='#CCFFFF' colspan='2' align='center'>$yr  </td></tr>";
 		echo " <tr><td  bgcolor='#CCCCFF' colspan='2' align='center'> <label> Specialization from </label></td> <td bgcolor='#CCFFFF' colspan='2' align='center'> $specilization_from</td></tr>";
 		#echo "<td  bgcolor='#CCCCFF'> <label> Ratings </label></td> <td bgcolor='#CCFFFF'> $ratings </td></tr>";
 		echo " <tr> <td  bgcolor='#CCCCFF' colspan='2' align='center'> <label> Phone number</label></td> <td bgcolor='#CCFFFF' colspan='2' align='center'> $phone_no </td></tr>";
-		echo "<tr><td  bgcolor='#CCCCFF' colspan='2' align='center'> <label> Address</label></td> <td bgcolor='#CCFFFF' colspan='2' align='center'> #$plot_no, $street street, $city,<br />$state, $country, $pin </td></tr>";
+		echo "<tr><td  bgcolor='#CCCCFF' colspan='2' align='center'> <label> Address</label></td> <td bgcolor='#CCFFFF' colspan='2' align='center'> #$plot_no, $street, $city,<br />$state, $country, $pin </td></tr>";
 															
 		$sql3=mysqli_query($conn, "select * from visits where doc_id='$doc_id' ") or die("error3");
 		$hos_count=mysqli_num_rows($sql3);
@@ -141,7 +151,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 		echo "<tr> <td  bgcolor='#CCCCFF' colspan='2' align='center'> <label> Visiting Days </label></td> <td bgcolor='#CCFFFF' colspan='2' align='center'> $day</td></tr>";
 		echo "<tr><td  bgcolor='#CCCCFF' colspan='2' align='center'> <label> Website </label></td> <td bgcolor='#CCFFFF' colspan='2' align='center'>$hwebsite</td></tr>";
 		echo "<tr> <td  bgcolor='#CCCCFF' colspan='2' align='center'> <label> Phone Number </label></td> <td bgcolor='#CCFFFF' colspan='2' align='center'>$hphone_number</td></tr>";
-		echo "<tr> <td  bgcolor='#CCCCFF' colspan='2' align='center'> <label> Address</label></td> <td bgcolor='#CCFFFF' colspan='2' align='center'> #$hplot_no, $hstreet street, $hcity,<br />$hstate, $hcountry, $hpin </td></tr>";
+		echo "<tr> <td  bgcolor='#CCCCFF' colspan='2' align='center'> <label> Address</label></td> <td bgcolor='#CCFFFF' colspan='2' align='center'> #$hplot_no, $hstreet, $hcity,<br />$hstate, $hcountry, $hpin </td></tr>";
 		
 			
 			
@@ -180,7 +190,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 		echo "<tr><td  bgcolor='#CCCCFF' colspan='2' align='center'> <label> Visiting Hours </label></td> <td bgcolor='#CCFFFF' colspan='2' align='center'>$from_time to $to_time</td></tr>";
 		echo "<tr> <td  bgcolor='#CCCCFF' colspan='2' align='center'> <label> Visiting Days </label></td> <td bgcolor='#CCFFFF' colspan='2' align='center'> $day</td></tr>";
 		echo "<tr><td  bgcolor='#CCCCFF' colspan='2' align='center'> <label> Phone Number  </label></td> <td bgcolor='#CCFFFF' colspan='2' align='center'>$phone_no</td></tr>";
-		echo "<tr> <td  bgcolor='#CCCCFF' colspan='2' align='center'> <label>Address </label></td> <td bgcolor='#CCFFFF' colspan='2' align='center'>#$plot_no, $hstreet street, $hcity,<br />$hstate, $hcountry, $hpin </td></tr>";
+		echo "<tr> <td  bgcolor='#CCCCFF' colspan='2' align='center'> <label>Address </label></td> <td bgcolor='#CCFFFF' colspan='2' align='center'>#$plot_no, $hstreet, $hcity,<br />$hstate, $hcountry, $hpin </td></tr>";
 	
 			
 			

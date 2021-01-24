@@ -63,7 +63,7 @@ $(document).ready(function(){
         
 		<?php
 	
-			$sql1=mysqli_query($conn,"SELECT * FROM doctor d, location l WHERE d.loc_id = l.loc_id AND d.first_name = '$first_name'") or die("Error1");
+			$sql1=mysqli_query($conn,"call searchDoctor('$first_name')") or die("Error1");
 			$count=mysqli_num_rows($sql1);
 			if($count==0)
 			{
@@ -90,16 +90,24 @@ $(document).ready(function(){
 					$country=$namesmp['country'];
 					$pin=$namesmp['pin'];
 					$exp_start_date=$namesmp['exp_start_date'];
+					
+					mysqli_close($conn);					
+					include("config1.php");
+					
+					$exp=mysqli_query($conn,"call experienceYear('$exp_start_date')");
+					$e1=mysqli_fetch_array($exp);
+					$yr=$e1['exp_year'];
+					
 					$specilization_from=$namesmp['specilization_from'];
 					$qualification=$namesmp['qualification'];
-			
+			        mysqli_close($conn);
 			/*$sql2=mysql_query("Select * from career where Did='$id' ")or die("erro2");
 			$career=mysql_fetch_array($sql2);
 			$Ratings=$career['Ratings'];
 			$Exp=$career['Exp'];
 			$Specilization_from=$career['Specilization_from'];
 			$Qualification=$career['Qualification'];*/
-			
+			        include("config1.php");
 					$query=mysqli_query($conn,"Select * from specilization where spec_id='$spec_id' ");
 					$spe=mysqli_fetch_array($query);
 					$spec_name=$spe['spec_name'];
@@ -118,8 +126,8 @@ $(document).ready(function(){
 							<td bgcolor='#CCFFFF' colspan='2' align='center'>$qualification</td>
 						</tr>";
 					echo " <tr>
-							<td bgcolor='#CCCCFF' colspan='2' align='center'> <label> Experience date</label></td> 
-							<td bgcolor='#CCFFFF' colspan='2' align='center'>$exp_start_date  </td>
+							<td bgcolor='#CCCCFF' colspan='2' align='center'> <label> Experience years</label></td> 
+							<td bgcolor='#CCFFFF' colspan='2' align='center'>$yr  </td>
 						</tr>";
 					echo " <tr>
 							<td  bgcolor='#CCCCFF' colspan='2' align='center'> <label> Specilization_from </label></td> 
@@ -132,7 +140,7 @@ $(document).ready(function(){
 						</tr>";
 					echo "<tr>
 							<td  bgcolor='#CCCCFF' colspan='2' align='center'> <label> Address</label></td> 
-							<td bgcolor='#CCFFFF' colspan='2' align='center'> #$plot_no, $street street, $city,<br />$state, $country, $pin </td>
+							<td bgcolor='#CCFFFF' colspan='2' align='center'> #$plot_no, $street, $city,<br />$state, $country, $pin </td>
 						</tr>";
 		
 					$sql3=mysqli_query($conn,"select * from visits where doc_id='$doc_id' ") or die("error3");
@@ -189,7 +197,7 @@ $(document).ready(function(){
 							</tr>";
 						echo "<tr> 
 								<td  bgcolor='#CCCCFF' colspan='2' align='center'> <label> Address</label></td> 
-								<td bgcolor='#CCFFFF' colspan='2' align='center'> #$plot_no, $street street, $city,<br />$state, $country, $pin </td>
+								<td bgcolor='#CCFFFF' colspan='2' align='center'> #$plot_no, $street, $city,<br />$state, $country, $pin </td>
 							</tr>";
 					}
 			
@@ -239,7 +247,7 @@ $(document).ready(function(){
 							</tr>";
 						echo "<tr> 
 								<td  bgcolor='#CCCCFF' colspan='2' align='center'> <label>Address </label></td> 
-								<td bgcolor='#CCFFFF' colspan='2' align='center'>#$plot_no, $street street, $city,<br />$state, $country, $pin </td>
+								<td bgcolor='#CCFFFF' colspan='2' align='center'>#$plot_no, $street, $city,<br />$state, $country, $pin </td>
 							</tr>";
 					}
 		

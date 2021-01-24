@@ -1,5 +1,6 @@
-DROP TRIGGER IF EXISTS `doctors_count_add`
+------ Trigger ------
 
+DROP TRIGGER IF EXISTS `doctors_count_add`
 delimiter $$
 create trigger doctors_count_add
 after insert on visits
@@ -13,7 +14,6 @@ end$$
 delimiter ;
 
 DROP TRIGGER IF EXISTS `doctors_count_sub`
-
 delimiter $$
 create trigger doctors_count_sub
 after delete on visits
@@ -26,27 +26,7 @@ begin
 end$$
 delimiter ;
 
-
-DROP PROCEDURE IF EXISTS `doctorCount`
-
-delimiter $$
-create procedure(IN total_doctors int, OUT count int)
-begin
-	set count=total_doctors+1;
-end$$
-delimiter ;
-
-DROP PROCEDURE IF EXISTS `experienceYear`
-DELIMITER $$
-CREATE PROCEDURE experienceYear(IN exp_start_date DATE)
-BEGIN
-    SELECT FLOOR(DATEDIFF(NOW(), DATE(exp_start_date))/365) as exp_year;
-END $$
-DELIMITER ;
-
-SET @p0=TIMESTAMP('2000-01-01'); 
-CALL `experienceYear`(@p0);
-
+--------- Procedure ----------
 
 DROP PROCEDURE IF EXISTS `experienceYear`
 delimiter$$

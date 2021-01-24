@@ -63,7 +63,7 @@ $(document).ready(function(){
         </td></tr>
         <tr><td>
         <input type="radio" name="op" value="Specilization" />
-       Specilization<br>
+       Specialization<br>
         </td></tr>
       <tr>  
      <td><br> <input type="submit" value="Select" style="margin-left:5px;" />   </td></tr>

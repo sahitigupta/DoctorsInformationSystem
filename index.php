@@ -280,7 +280,7 @@ span.psw {
   <div class="clr"></div>
   <div class="footer">
     <div class="footer_resize">
-      <p class="leftt">Copyright © Doc Info. All Rights Reserved<br/>
+      <p class="leftt">Copyright © Doc Info. All Rights Reserved<br/>                      <!--style="margin-left: 400px"-->
         <a href="#">Home</a> | <a href="#">Contact</a><!-- | <a href="#">RSS</a></p>-->
       <div class="clr"></div>
     </div>
