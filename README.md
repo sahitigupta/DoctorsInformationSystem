@@ -8,4 +8,4 @@ Steps:
 3. Open phpmyadmin in the browser and create the database (docinfo).  
 4. Import "sqlstructure.sql" file into the database in phpmyadmin.  
 5. Update the "config1.php" file with mysql username and password.  
-6. To open website navigate to browser using "localhost/DoctorInformationSystem".
+6. To open website navigate to browser using "localhost/DoctorsInformationSystem".
