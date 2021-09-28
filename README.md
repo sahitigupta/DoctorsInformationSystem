@@ -6,6 +6,6 @@ Steps:
 1. Place the folder in C:/xampp/htdocs.  
 2. Turn on MySQL and Apache modules in XAMPP server.  
 3. Open phpmyadmin in the browser and create the database (docinfo).  
-4. Import "sqlstructure.sql" file into the database in phpmyadmin.  
+4. Import "sqlstructure.sql" and "TriggerAndStoredProcedure.sql" files into the database in phpmyadmin.  
 5. Update the "config1.php" file with mysql username and password.  
 6. To open website navigate to browser using "localhost/DoctorsInformationSystem".
